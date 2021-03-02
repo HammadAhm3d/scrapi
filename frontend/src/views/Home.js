@@ -154,7 +154,8 @@ export default function Home() {
         //     setloading(false)
         // }
 
-        axios.post("http://localhost:5000/links",body,config)
+        // axios.post("http://localhost:5000/links",body,config)
+        axios.post("https://scrapi-mern.herokuapp.com//links",body,config)
         .then(res => {
             setlinks(res.data.links)
             console.log(links)
