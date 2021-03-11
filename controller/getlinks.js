@@ -14,9 +14,8 @@ exports.scrape=async (req,res)=>{
       args: req.body.inputt
       
     };
-    
 
-    PythonShell.run("D:/Node projects/MERN-Stack-Web-Scrapper/scrapi/controller/google_scholar_links.py", options, function (err, results) {
+    PythonShell.run("D:\\Node projects\\MERN-Stack-Web-Scrapper\\scrapi\\controller\\google_scholar_links.py", options, function (err, results) {
       if (err) 
         throw err;
       
