@@ -11,11 +11,12 @@ exports.scrape=async (req,res)=>{
     var options = {
       
       pythonOptions: ['-u'],
+      scriptPath: "D:/Node projects/MERN-Stack-Web-Scrapper/scrapi/controller/",
       args: req.body.inputt
       
     };
 
-    PythonShell.run("D:\\Node projects\\MERN-Stack-Web-Scrapper\\scrapi\\controller\\google_scholar_links.py", options, function (err, results) {
+    PythonShell.run("google_scholar_links.py", options, function (err, results) {
       if (err) 
         throw err;
       
