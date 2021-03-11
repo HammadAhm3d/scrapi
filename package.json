@@ -9,7 +9,7 @@
     "start": "nodemon index.js",
     "build": "cd frontend && npm run build",
     "install-frontend": "cd frontend && npm install",
-    "heroku-postbuild": "npm run install-frontend && npm run build"  
+    "heroku-postbuild": "npm run install-frontend && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +22,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.15",
     "nodemon": "^2.0.6",
-    "python-shell": "^2.0.3",
-    "proxy": "http://localhost:5000"
+    "python-shell": "^2.0.3"
   }
 }
