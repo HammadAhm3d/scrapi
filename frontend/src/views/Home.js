@@ -155,7 +155,7 @@ export default function Home() {
         // }
         const PORT = process.env.PORT
         // axios.post("https://scrapi-mern.herokuapp.com/links",body,config)
-        axios.post(`http://localhost:${PORT}/links`,body,config)
+        axios.post(`/links`,body,config)
         .then(res => {
             setlinks(res.data.links)
             console.log(links)
