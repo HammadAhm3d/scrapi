@@ -11,7 +11,7 @@ exports.scrape=async (req,res)=>{
     var options = {
       
       pythonOptions: ['-u'],
-      scriptPath: "D:/Node projects/MERN-Stack-Web-Scrapper/scrapi/controller/",
+      scriptPath: "controller/",
       args: req.body.inputt
       
     };
