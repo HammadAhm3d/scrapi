@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
+import os
 from fake_useragent import UserAgent
 
 
@@ -15,11 +16,6 @@ import sys
 inputt='afdsr'
 
 inputt = ' '.join(sys.argv[1:])
-GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
-
-
-
 
 
 x= inputt
@@ -31,15 +27,20 @@ def get_links(user_input):
 	
 	chrome_options = webdriver.ChromeOptions()
 	
+	chrome_options.add_argument("--headless")
 	chrome_options.add_argument('--disable-gpu')
 	chrome_options.add_argument('--no-sandbox')
+	chrome_options.add_argument("--disable-dev-shm-usage")
 	chrome_options.binary_location = GOOGLE_CHROME_PATH
 	chrome_options.add_argument("--user-data-dir=chrome-data")
 	chrome_options.add_argument("user-data-dir=chrome-data") 
+	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
 	#chrome_options.add_argument('path=C:\chromedriver.exe')
-	chrome_path = r"controller/chromedriver"
+	# chrome_path = r"controller/chromedriver"
 	#chrome_options.add_argument('--user-agent="Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 640 XL LTE) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Edge/12.10166"')
-	driver = webdriver.Chrome(driver_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+	# driver = webdriver.Chrome(driver_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
 
 	3#driver = webdriver.Chrome('C:\chromedriver.exe')
 	#driver.delete_all_cookies()
