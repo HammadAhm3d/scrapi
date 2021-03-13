@@ -46,12 +46,12 @@ def get_links(user_input):
 
 	#going to url
 	driver.get('https://scholar.google.com/')
-	time.sleep(2)
+	time.sleep(20)
 
 	#placing user input
 	textfield=driver.find_element_by_xpath("//input[@class='gs_in_txt gs_in_ac']")
 	textfield.send_keys(user_input)
-	time.sleep(2)
+	time.sleep(20)
 
 	#clicking search button
 	search=driver.find_element_by_id("gs_hdr_tsb")
