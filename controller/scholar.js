@@ -17,11 +17,15 @@ exports.getScholarLinks = async(req, res) => {
 
     //for running locally use following
     require('chromedriver');
+    // require('geckodriver');
     serviceBuilder = new ServiceBuilder();
+    // options.setBinary(process.env.FIREFOX_BIN || "C:\\firefoxdriver.exe");
 
     //for running on heroku use following
     // options.setChromeBinaryPath(process.env.GOOGLE_CHROME_BIN);
     // serviceBuilder = new ServiceBuilder(process.env.CHROMEDRIVER_PATH);
+
+
 
     
     console.log(`inside getScholarLinks()`);
@@ -29,7 +33,7 @@ exports.getScholarLinks = async(req, res) => {
     var scholarLinks = [];
     try{
         driver = await new Builder()
-            .forBrowser('chrome')
+            .forBrowser(Browser.CHROME)
             .setChromeOptions(options)
             .setChromeService(serviceBuilder)
             .build();
