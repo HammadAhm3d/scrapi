@@ -1,6 +1,6 @@
-require('chromedriver');
-const { Builder, By, until } = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
+// require('chromedriver');
+const {Browser, Builder, By, until } = require('selenium-webdriver');
+const {Options, ServiceBuilder} = require('selenium-webdriver/chrome');
 
 
 
@@ -10,11 +10,12 @@ exports.getScholarLinks = async(req, res) => {
     var options = null;
     var serviceBuilder = null;
 
-    options = new chrome.Options();
+    options = new Options();
+    options.setChromeBinaryPath(process.env.GOOGLE_CHROME_BIN);
     //uncomment for heroku
     // serviceBuilder = new chrome.ServiceBuilder(process.env.CHROMEDRIVER_PATH);
     //comment for heroku
-    serviceBuilder = new chrome.ServiceBuilder();
+    serviceBuilder = new ServiceBuilder(process.env.CHROMEDRIVER_PATH);
     // options.setBinary(process.env.GOOGLE_CHROME_BIN);
 
     options.addArguments("--headless");
