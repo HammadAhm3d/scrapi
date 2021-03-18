@@ -1,4 +1,3 @@
-// require('chromedriver');
 const {Browser, Builder, By, until } = require('selenium-webdriver');
 const {Options, ServiceBuilder} = require('selenium-webdriver/chrome');
 
@@ -11,16 +10,20 @@ exports.getScholarLinks = async(req, res) => {
     var serviceBuilder = null;
 
     options = new Options();
-    options.setChromeBinaryPath(process.env.GOOGLE_CHROME_BIN);
-    //uncomment for heroku
-    // serviceBuilder = new chrome.ServiceBuilder(process.env.CHROMEDRIVER_PATH);
-    //comment for heroku
-    serviceBuilder = new ServiceBuilder(process.env.CHROMEDRIVER_PATH);
-    // options.setBinary(process.env.GOOGLE_CHROME_BIN);
 
     options.addArguments("--headless");
     options.addArguments("--disable-gpu");
     options.addArguments("--no-sandbox");
+
+    //for running locally use following
+    require('chromedriver');
+    serviceBuilder = new ServiceBuilder();
+
+    //for running on heroku use following
+    // options.setChromeBinaryPath(process.env.GOOGLE_CHROME_BIN);
+    // serviceBuilder = new ServiceBuilder(process.env.CHROMEDRIVER_PATH);
+
+    
     console.log(`inside getScholarLinks()`);
     let driver = null;
     var scholarLinks = [];
