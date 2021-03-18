@@ -14,7 +14,7 @@ exports.getScholarLinks = async(req, res) => {
     //uncomment for heroku
     //serviceBuilder = new firefox.ServiceBuilder(process.env.GECKODRIVER_PATH);
     //comment for heroku
-    // serviceBuilder = new chrome.ServiceBuilder();
+    serviceBuilder = new chrome.ServiceBuilder();
     // options.setBinary(process.env.FIREFOX_BIN || "C:\\firefoxdriver.exe");
     // options.setBinary(process.env.GOOGLE_CHROME_BIN || "/controller/chromedriver.exe");
 
@@ -28,6 +28,7 @@ exports.getScholarLinks = async(req, res) => {
         driver = await new Builder()
             .forBrowser('chrome')
             .setChromeOptions(options)
+            .setChromeService(serviceBuilder)
             .build();
         await driver.get(`${url}scholar?q=${req.body.inputt}`);
         let page_no = 1;
