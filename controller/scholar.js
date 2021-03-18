@@ -1,4 +1,4 @@
-require('chromedriver');
+// require('chromedriver');
 const { Builder, By, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 
@@ -12,11 +12,10 @@ exports.getScholarLinks = async(req, res) => {
 
     options = new chrome.Options();
     //uncomment for heroku
-    //serviceBuilder = new firefox.ServiceBuilder(process.env.GECKODRIVER_PATH);
+    // serviceBuilder = new chrome.ServiceBuilder(process.env.CHROMEDRIVER_PATH);
     //comment for heroku
     serviceBuilder = new chrome.ServiceBuilder();
-    // options.setBinary(process.env.FIREFOX_BIN || "C:\\firefoxdriver.exe");
-    // options.setBinary(process.env.GOOGLE_CHROME_BIN || "/controller/chromedriver.exe");
+    // options.setBinary(process.env.GOOGLE_CHROME_BIN);
 
     options.addArguments("--headless");
     options.addArguments("--disable-gpu");
