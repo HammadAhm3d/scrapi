@@ -22,6 +22,11 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.15",
     "nodemon": "^2.0.6",
-    "python-shell": "^2.0.3"
+    "python-shell": "^2.0.3",
+    "selenium-webdriver": "^4.0.0-beta.2",
+    "sharp": "^0.27.2"
+  },
+  "devDependencies": {
+    "chromedriver": "^89.0.0"
   }
 }
